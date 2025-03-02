@@ -1,10 +1,31 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Counter.module.scss';
+import { Button } from 'shared/ui/Button/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { counterActions } from '../model/slice/counterSlice';
 
-interface CounterProps {
-    className?: string;
-}
+export const Counter = () => {
+    const dispatch = useDispatch();
+    const counterValue = useSelector((state: StateSchema) => state.counter.value);
 
-export const Counter = ({ className }: CounterProps) => (
-    <div className={classNames(cls.Counter, {}, [className])} />
-);
+    const increment = () => {
+        dispatch(counterActions.increment());
+    };
+    const decrement = () => {
+        dispatch(counterActions.decrement());
+    };
+    return (
+        <div>
+            {/* eslint-disable-next-line i18next/no-literal-string */}
+            <h1>
+                value =
+                {counterValue}
+            </h1>
+            <Button onClick={increment}>
+                +
+            </Button>
+            <Button onClick={decrement}>
+                -
+            </Button>
+        </div>
+    );
+};
