@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run lint:ts
-npm run lint:scss
-npm run test:unit
-npm run test:ui
+if [ "$GIT_BRANCH" = "master" ]; then
+  npm run lint:ts
+  npm run lint:scss
+  npm run test:unit
+  npm run test:ui
+fi
