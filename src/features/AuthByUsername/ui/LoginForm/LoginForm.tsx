@@ -15,7 +15,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
     <div className={classNames(styles.LoginForm, {}, [className])}>
       <Input type="text" className={styles.input} placeholder={t('Введите username')} autoFocus />
       <Input type="text" className={styles.input} placeholder={t('Введите пароль')} />
-      <Button theme={ButtonTheme.BACKGROUND_INVERTED} className={styles.loginBtn}>
+      <Button theme={ButtonTheme.OUTLINE} className={styles.loginBtn}>
         {t('Войти')}
       </Button>
     </div>

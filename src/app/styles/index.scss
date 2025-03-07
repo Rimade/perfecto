@@ -3,10 +3,6 @@
 @import "themes/normal";
 @import "themes/dark";
 
-* {
-  transition: color 0.05s ease-in;
-}
-
 body {
   font: var(--font-m);
   color: var(--primary-color);
