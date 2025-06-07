@@ -1,6 +1,4 @@
-import {
-  ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
-} from 'react';
+import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Input.module.scss';
 
@@ -16,7 +14,13 @@ interface InputProps extends HTMLInputProps {
 
 export const Input = memo((props: InputProps) => {
   const {
-    className, value, onChange, type = 'text', placeholder, autoFocus, ...otherProps
+    className,
+    value,
+    onChange,
+    type = 'text',
+    placeholder,
+    autoFocus,
+    ...otherProps
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -49,11 +53,7 @@ export const Input = memo((props: InputProps) => {
 
   return (
     <div className={classNames(styles.InputWrapper, {}, [className])}>
-      {placeholder && (
-        <div className={styles.placeholder}>
-          {`${placeholder}>`}
-        </div>
-      )}
+      {placeholder && <div className={styles.placeholder}>{`${placeholder}>`}</div>}
 
       <div className={styles.caretWrapper}>
         <input

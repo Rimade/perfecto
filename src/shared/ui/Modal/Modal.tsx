@@ -1,28 +1,20 @@
-import {
-  MouseEvent, ReactNode, useCallback, useEffect, useRef, useState,
-} from 'react';
+import { MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
-    className?: string;
-    children?: ReactNode;
-    isOpen?: boolean;
-    lazy?: boolean;
-    onClose?: () => void;
+  className?: string;
+  children?: ReactNode;
+  isOpen?: boolean;
+  lazy?: boolean;
+  onClose?: () => void;
 }
 
 const ANIMATION_DELAY = 200;
 
 export const Modal = (props: ModalProps) => {
-  const {
-    className,
-    children,
-    isOpen,
-    lazy,
-    onClose,
-  } = props;
+  const { className, children, isOpen, lazy, onClose } = props;
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
@@ -43,11 +35,14 @@ export const Modal = (props: ModalProps) => {
     }
   }, [onClose]);
 
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      closeHandler();
-    }
-  }, [closeHandler]);
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeHandler();
+      }
+    },
+    [closeHandler],
+  );
 
   const onContentClick = (e: MouseEvent) => {
     e.stopPropagation();
