@@ -9,8 +9,7 @@ const initialState: UserSchema = {
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-  },
+  reducers: {},
 });
 
 export const { actions: userActions, reducer: userReducer } = userSlice;

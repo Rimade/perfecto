@@ -11,7 +11,7 @@ import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string;
+  className?: string;
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
@@ -39,25 +39,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.items}>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.main}
-          className={cls.item}
-        >
+        <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main} className={cls.item}>
           <MainIcon className={cls.icon} />
-          <span className={cls.link}>
-            {t('Главная')}
-          </span>
+          <span className={cls.link}>{t('Главная')}</span>
         </AppLink>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.about}
-          className={cls.item}
-        >
+        <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about} className={cls.item}>
           <AboutIcon className={cls.icon} />
-          <span className={cls.link}>
-            {t('О сайте')}
-          </span>
+          <span className={cls.link}>{t('О сайте')}</span>
         </AppLink>
       </div>
       <div className={cls.switchers}>

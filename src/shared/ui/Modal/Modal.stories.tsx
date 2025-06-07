@@ -17,12 +17,14 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   isOpen: true,
-  children: 'Hi, i am Muhammad-Amin and i am 19 y.o. I\'m from Russia, Ingushetiya. I\'m a Frontend developer. I like to study and improve myself.',
+  children:
+    "Hi, i am Muhammad-Amin and i am 19 y.o. I'm from Russia, Ingushetiya. I'm a Frontend developer. I like to study and improve myself.",
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
   isOpen: true,
-  children: 'Hi, i am Muhammad-Amin and i am 19 y.o. I\'m from Russia, Ingushetiya. I\'m a Frontend developer. I like to study and improve myself.',
+  children:
+    "Hi, i am Muhammad-Amin and i am 19 y.o. I'm from Russia, Ingushetiya. I'm a Frontend developer. I like to study and improve myself.",
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
