@@ -18,8 +18,10 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'prettier'],
   rules: {
+    'prettier/prettier': 'error',
+    '@typescript-eslint/consistent-type-imports': 'warn',
     'react/jsx-indent': [1, 2],
     'react/jsx-indent-props': [1, 2],
     indent: [1, 2],

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { ButtonHTMLAttributes, FC } from 'react';
+import type { ButtonHTMLAttributes, FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
