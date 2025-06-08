@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+npm run format || exit 1
+
 if [ "$GIT_BRANCH" = "master" ]; then
   npm run lint:ts
   npm run lint:scss

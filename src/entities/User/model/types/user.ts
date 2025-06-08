@@ -6,4 +6,5 @@ export interface User {
 export interface UserSchema {
   authData?: User;
   isLoading: boolean;
+  error?: string;
 }
