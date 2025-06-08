@@ -35,6 +35,13 @@ module.exports = {
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
     'import/extensions': 'off',
+    'import/order': [
+      'warn',
+      {
+        groups: ['builtin', 'external', 'internal'],
+        'newlines-between': 'always',
+      },
+    ],
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': [

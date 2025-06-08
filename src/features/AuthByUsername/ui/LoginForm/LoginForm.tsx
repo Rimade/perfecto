@@ -1,15 +1,19 @@
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import type { FormEvent, KeyboardEvent } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
-import type { FormEvent, KeyboardEvent } from 'react';
-import { memo, useCallback } from 'react';
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
+
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginActions } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
+
+// eslint-disable-next-line import/order
+import i18n from 'shared/config/i18n/i18n';
 
 interface LoginFormProps {
   className?: string;
@@ -63,7 +67,12 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     >
       <Text title={t('Авторизация')} align={TextAlign.CENTER} size={TextSize.L} />
       {error && (
-        <Text theme={TextTheme.ERROR} text={error} align={TextAlign.CENTER} size={TextSize.L} />
+        <Text
+          theme={TextTheme.ERROR}
+          text={i18n.t('Вы ввели неверный логин или пароль')}
+          align={TextAlign.CENTER}
+          size={TextSize.L}
+        />
       )}
       <Input
         value={username}

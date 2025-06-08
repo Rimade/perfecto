@@ -1,6 +1,8 @@
+import path from 'path';
+
 import type { Configuration } from 'webpack';
 import { DefinePlugin } from 'webpack';
-import path from 'path';
+
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import type { BuildPaths } from '../build/types/config';
 
