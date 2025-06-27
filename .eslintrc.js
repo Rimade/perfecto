@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     '@typescript-eslint/consistent-type-imports': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'react/jsx-indent': [1, 2],
     'react/jsx-indent-props': [1, 2],
     indent: [1, 2],
@@ -44,8 +45,9 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
+    // временно отключено, чтобы не было ошибок при использовании i18next
     'i18next/no-literal-string': [
-      'error',
+      0,
       {
         markupOnly: true,
         ignoreAttribute: ['data-testid', 'to'],

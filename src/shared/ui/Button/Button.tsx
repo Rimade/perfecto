@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import type { ButtonHTMLAttributes, FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
