@@ -10,7 +10,6 @@ interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string | number;
   autoFocus?: boolean;
-  // eslint-disable-next-line no-unused-vars
   onChange?: (value: string) => void;
 }
 
