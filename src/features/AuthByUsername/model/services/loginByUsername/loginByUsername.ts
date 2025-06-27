@@ -25,7 +25,7 @@ export const loginByUsername = createAsyncThunk<
       throw new Error('Нет данных пользователя');
     }
 
-    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
+    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data.username));
     dispatch(userActions.setAuthData(response.data));
 
     return response.data;
