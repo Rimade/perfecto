@@ -5,7 +5,7 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { memo } from 'react';
 
 import cls from './SidebarItem.module.scss';
-import type { SidebarItemType } from '../../model/items';
+import type { SidebarItemType } from '../../model/types';
 
 interface SidebarItemProps {
   item: SidebarItemType;

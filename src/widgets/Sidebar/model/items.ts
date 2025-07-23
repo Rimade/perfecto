@@ -2,13 +2,8 @@ import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import ProfileIcon from 'shared/assets/icons/profile-20-20.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import type { VFC, SVGProps } from 'react';
 
-export interface SidebarItemType {
-  path: (typeof RoutePath)[keyof typeof RoutePath];
-  text: string;
-  icon: VFC<SVGProps<SVGSVGElement>>;
-}
+import type { SidebarItemType } from './types';
 
 export const SidebarItemsList: SidebarItemType[] = [
   {
