@@ -2,5 +2,14 @@
   "posts": [{ "id": "1", "title": "json-server", "author": "typicode" }],
   "comments": [{ "id": "1", "body": "some comment", "postId": "1" }],
   "users": [{ "id": "1", "username": "admin", "password": "123" }],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Amin",
+    "lastname": "Khalili",
+    "age": 19,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://i.pinimg.com/736x/db/e1/c9/dbe1c94be63fa384b313fd440a1a274e.jpg"
+  }
 }

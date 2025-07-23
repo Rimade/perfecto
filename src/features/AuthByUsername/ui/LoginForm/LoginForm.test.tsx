@@ -12,14 +12,14 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('LoginForm', () => {
   test('рендеринг компонента', () => {
-    componentRender(<LoginForm />, {
+    componentRender(<LoginForm onSuccess={() => {}} />, {
       asyncReducers: { loginForm: loginReducer },
     });
     expect(screen.getByTestId('LoginForm')).toBeInTheDocument();
   });
 
   test('ввод имени пользователя', async () => {
-    componentRender(<LoginForm />, {
+    componentRender(<LoginForm onSuccess={() => {}} />, {
       asyncReducers: { loginForm: loginReducer },
     });
     const usernameInput = screen.getByTestId('LoginForm.username');
@@ -30,7 +30,7 @@ describe('LoginForm', () => {
   });
 
   test('ввод пароля', async () => {
-    componentRender(<LoginForm />, {
+    componentRender(<LoginForm onSuccess={() => {}} />, {
       asyncReducers: { loginForm: loginReducer },
     });
     const passwordInput = screen.getByTestId('LoginForm.password');
@@ -41,7 +41,7 @@ describe('LoginForm', () => {
   });
 
   test('отображение ошибки', () => {
-    componentRender(<LoginForm />, {
+    componentRender(<LoginForm onSuccess={() => {}} />, {
       initialState: {
         loginForm: {
           error: 'error',
@@ -58,7 +58,7 @@ describe('LoginForm', () => {
   });
 
   test('отображение индикатора загрузки', () => {
-    componentRender(<LoginForm />, {
+    componentRender(<LoginForm onSuccess={() => {}} />, {
       initialState: {
         loginForm: {
           isLoading: true,
@@ -76,7 +76,7 @@ describe('LoginForm', () => {
 
   test('нажатие на кнопку входа', async () => {
     mockedAxios.post.mockResolvedValue({ data: { username: 'admin', id: '1' } });
-    componentRender(<LoginForm />, {
+    componentRender(<LoginForm onSuccess={() => {}} />, {
       asyncReducers: {
         loginForm: loginReducer,
       },

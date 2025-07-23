@@ -2,7 +2,7 @@ import { loginByUsername } from 'features/AuthByUsername/model/services/loginByU
 import type { FormEvent, KeyboardEvent } from 'react';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useSelector, useStore } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
@@ -11,6 +11,7 @@ import type { StoreWithManager } from 'app/providers/StoreProvider';
 import i18n from 'shared/config/i18n/i18n';
 import type { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
@@ -20,6 +21,7 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import styles from './LoginForm.module.scss';
 
 export interface LoginFormProps {
+  onSuccess: () => void;
   className?: string;
 }
 
@@ -27,9 +29,9 @@ const initialReducers: ReducerList = {
   loginForm: loginReducer,
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ onSuccess, className }: LoginFormProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const store = useStore() as StoreWithManager;
 
@@ -62,9 +64,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     [dispatch],
   );
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, username, password]);
+  const onLoginClick = useCallback(async () => {
+    const res = await dispatch(loginByUsername({ username, password }));
+    if (res.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, username, password, onSuccess]);
 
   const onSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
