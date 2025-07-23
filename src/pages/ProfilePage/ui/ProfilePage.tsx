@@ -5,7 +5,7 @@ interface ProfilePageProps {
   className?: string;
 }
 
-export const ProfilePage = ({ className }: ProfilePageProps) => {
+const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t } = useTranslation();
 
   return (
@@ -15,3 +15,4 @@ export const ProfilePage = ({ className }: ProfilePageProps) => {
     </div>
   );
 };
+export default ProfilePage;

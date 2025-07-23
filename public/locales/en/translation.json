@@ -10,10 +10,12 @@
   "throw error": "throw error",
   "Главная": "Main",
   "О сайте": "About us",
-  "Переключить": "Переключить",
+  "Переключить": "Switch",
   "Короткий язык": "En",
   "Войти": "Login",
+  "Выйти": "Logout",
   "Введите пароль": "Enter password",
   "Введите username": "Enter username",
-  "Вы ввели неверный логин или пароль": "You entered an invalid username or password"
+  "Вы ввели неверный логин или пароль": "You entered an invalid username or password",
+  "Профиль": "Profile"
 }

@@ -32,21 +32,6 @@
   gap: 10px;
 }
 
-.item {
-  display: flex;
-  align-items: flex-start;
-  text-decoration: none;
-  gap: 10px;
-}
-
-.icon {
-  fill: var(--inverted-primary-color);
-}
-
-.link {
-  opacity: 1;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
@@ -57,11 +42,5 @@
 
   .lang {
     margin-left: 0;
-  }
-
-  .link {
-    opacity: 0;
-    transition: opacity 0.1s;
-    width: 0;
   }
 }
