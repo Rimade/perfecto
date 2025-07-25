@@ -23,6 +23,7 @@ export default (env: BuildEnv) => {
     paths,
     isDev,
     port: PORT,
+    apiUrl: env.apiUrl || 'http://localhost:8000',
   });
 
   return config;
