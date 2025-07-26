@@ -17,12 +17,12 @@ export function componentRender(component: ReactNode, options: componentRenderOp
   const { route = '/', initialState, asyncReducers } = options;
 
   return render(
-    <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
+    <MemoryRouter initialEntries={[route]}>
       <Suspense fallback="">
-        <MemoryRouter initialEntries={[route]}>
+        <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
           <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
-        </MemoryRouter>
+        </StoreProvider>
       </Suspense>
-    </StoreProvider>,
+    </MemoryRouter>,
   );
 }
