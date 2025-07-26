@@ -35,6 +35,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
+    'no-undef': 'off',
     'import/extensions': 'off',
     'import/order': [
       'warn',

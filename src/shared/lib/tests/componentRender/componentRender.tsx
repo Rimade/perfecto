@@ -1,4 +1,4 @@
-import type { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
+import type { ReducersMapObject } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
 import type { StateSchema } from 'app/providers/StoreProvider';
 import { StoreProvider } from 'app/providers/StoreProvider';

@@ -1,3 +1,4 @@
+import type { Mods } from 'shared/lib/classNames/classNames';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 
@@ -38,7 +39,7 @@ export const Text = memo((props: TextProps) => {
     size = TextSize.M,
   } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls[theme]]: true,
     [cls[align]]: true,
     [cls[size]]: true,

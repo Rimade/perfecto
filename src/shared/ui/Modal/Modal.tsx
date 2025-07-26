@@ -1,5 +1,6 @@
-import type { MouseEvent, ReactNode } from 'react';
+import type { MouseEvent, MutableRefObject, ReactNode } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import type { Mods } from 'shared/lib/classNames/classNames';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 
@@ -19,7 +20,7 @@ export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, lazy, onClose } = props;
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   useEffect(() => {
     if (isOpen) {
@@ -61,7 +62,7 @@ export const Modal = (props: ModalProps) => {
     };
   }, [isOpen, onKeyDown]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };

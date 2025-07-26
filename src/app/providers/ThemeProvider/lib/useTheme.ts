@@ -11,17 +11,17 @@ export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-    document.body.className = theme;
+    document.body.className = theme || Theme.LIGHT;
   }, [theme]);
 
   const toggleTheme = () => {
-    const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-    setTheme(newTheme);
+    const newTheme = (theme || Theme.LIGHT) === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+    setTheme?.(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 
   return {
-    theme,
+    theme: theme || Theme.LIGHT,
     toggleTheme,
   };
 }

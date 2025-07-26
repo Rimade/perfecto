@@ -36,7 +36,7 @@ export interface StoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate: NavigateFunction;
+  navigate?: NavigateFunction;
 }
 
 export interface ThunkConfig<T> {
